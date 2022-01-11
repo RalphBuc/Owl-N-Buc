@@ -1,0 +1,40 @@
+@use '../abstract/' as *;
+
+.lightbox {
+    @include position(fixed, 0, 0, 0, 0, 100%, 100%);
+    @include align(flex, center, center, 100%);
+    background: rgba(0, 0, 0, 0.9);
+    &__card {
+        @include align(flex, center, center, 100%);
+        height: 45rem;
+        width: 45rem;
+        overflow: hidden;
+        background: transparent;
+        animation: lightboxAnimation 0.5s linear;
+        @keyframes lightboxAnimation {
+            from {
+                opacity: 0;
+                transform: translateY(-5rem);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @include responsive(medium) {
+            height: 40rem;
+            width: 40rem;
+        }
+        @include responsive(small) {
+            height: 30rem;
+            width: 30rem;
+        }
+        &__image {
+            img {
+                height: 100%;
+                width: 100%;
+                border-radius: 0.4rem;
+            }
+        }
+    }
+}

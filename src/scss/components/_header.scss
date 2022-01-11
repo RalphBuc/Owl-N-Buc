@@ -1,0 +1,88 @@
+@use '../abstract/' as *;
+
+.header {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    &__image {
+        height: auto;
+        img {
+            height: 100%;
+            position: absolute;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+    &__icon {
+        @include position(absolute, 2rem, 3rem, null, null, 100%, 100%);
+        z-index: 2;
+        img {
+            width: 5rem;
+            height: auto;
+            object-fit: cover;
+            @include responsive(large) {
+                width: 4.5rem;
+            }
+            @include responsive(medium) {
+                width: 4rem;
+            }
+            @include responsive(small) {
+                width: 3.5rem;
+            }
+            @include responsive(xsmall) {
+                width: 3rem;
+            }
+        }
+    }
+
+    &__text {
+        @include position(relative, 0, 0, null, null, 100%, 100%);
+        background-color: rgba(0, 0, 0, 0.4);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 1;
+        text-transform: capitalize;
+        &__h1 {
+            h1 {
+                font-size: 6rem;
+                letter-spacing: 0.4rem;
+                font-weight: 900;
+                color: $main1;
+                @include responsive(medium) {
+                    font-size: 5.6rem;
+                    font-weight: 800;
+                    letter-spacing: 0.2rem;
+                }
+                @include responsive(small) {
+                    font-size: 4rem;
+                    font-weight: 800;
+                    letter-spacing: 0.2rem;
+                }
+            }
+        }
+        &__p {
+            p {
+                font-size: 2.4rem;
+                color: white;
+                @include responsive(medium) {
+                    font-size: 1.8rem;
+                    font-weight: 600;
+                    letter-spacing: 0.2rem;
+                }
+                @include responsive(small) {
+                    font-size: 1.6rem;
+                    font-weight: 400;
+                    letter-spacing: 0.1rem;
+                }
+                @include responsive(xsmall) {
+                    font-size: 1.2rem;
+                    font-weight: 100;
+                    letter-spacing: 0.1rem;
+                }
+            }
+        }
+    }
+}

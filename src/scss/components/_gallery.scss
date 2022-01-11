@@ -1,0 +1,80 @@
+@use '../abstract/' as *;
+
+.gallery {
+    margin: auto;
+    margin-top: 8rem;
+    width: 80%;
+    display: grid;
+    grid-template-areas:
+        'box1 box2 box2'
+        'box1 box3 box3';
+    gap: 1rem;
+    @include responsive(large) {
+        grid-template-areas:
+            'box1 box2 box2'
+            'box1 box3 box3';
+        gap: 1rem;
+        margin-top: 5rem;
+        width: 50%;
+        height: 50%;
+    }
+    @include responsive(medium) {
+        grid-template-areas:
+            'box1 box1'
+            'box2 box2'
+            'box3 box3';
+        gap: 1rem;
+        margin-top: 3rem;
+        width: 50%;
+        height: 50%;
+    }
+    &_img1 {
+        grid-area: box1;
+        @include align(flex, center, center, 100%);
+        width: 100%;
+        img {
+            // width: 50rem;
+            // height: 80rem;
+            width: 50rem;
+            height: 100%;
+            cursor: pointer;
+            @include responsive(large) {
+                width: 100%;
+                height: 100%;
+            }
+            @include responsive(medium) {
+                width: 80%;
+                height: 100%;
+            }
+            @include responsive(small) {
+                width: 85%;
+                height: 85%;
+            }
+        }
+    }
+    &_img2 {
+        grid-area: box2;
+        img {
+            width: 100%;
+            height: auto;
+            cursor: pointer;
+            @include responsive(large) {
+                width: 96.5%;
+                height: 96.5%;
+            }
+        }
+    }
+    &_img3 {
+        grid-area: box3;
+        img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            cursor: pointer;
+            @include responsive(large) {
+                width: 96.5%;
+                height: 96.5%;
+            }
+        }
+    }
+}

@@ -1,0 +1,17 @@
+@use '../abstract/' as *;
+
+.footer {
+    margin-top: 8rem;
+    background: linear-gradient(to right, $main1, #00c853, $main2);
+    padding: 2rem;
+    text-align: center;
+    h1 {
+        font-size: 1.4rem;
+        font-weight: 400;
+        color: #fff;
+        @include responsive(medium) {
+            font-size: 1.2rem;
+            font-weight: 400;
+        }
+    }
+}
